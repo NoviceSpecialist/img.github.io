@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/index.js"></script>
+    <link rel="preload" href="assets/fonts/Bitter.woff2" as="font" crossorigin>
+    <link rel="stylesheet" href="style/img.css">
+    <title>Document</title>
+</head>
+<body>
+<h1>Photo 1</h1>
+<img data-src="les.png" src="clearkv.jpg" alt="test image">
+<img data-src="assets/img/secWeek/lilii.jpg" src="clearkv.jpg" alt="lilii">
+<img class="lazy" data-src="assets/img/secWeek/hristos.jpg" src="clearkv.jpg" alt="hrist">
+<script>
+    [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.onload = function() {
+            img.removeAttribute('data-src');
+        };
+    });
+</script>
+</body>
+</html>
